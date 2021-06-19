@@ -176,6 +176,18 @@ $("#remove-tasks").on("click", function () {
 // load tasks for the first time
 loadTasks();
 
+$("#trash").droppable({
+  accept: ".card .list-group-item",
+  tolerance: "touch",
+  drop: function(event, ui) {
+    ui.draggable.remove();
+  },
+  over: function(event, ui) {
+  },
+  out: function(event, ui) {
+  }
+});
+
 $(".card .list-group").sortable({
   connectWith: $(".card .list-group"),
   scroll: false,
